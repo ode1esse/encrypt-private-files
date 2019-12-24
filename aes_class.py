@@ -87,7 +87,7 @@ class LockPath:
     def decrypt_process(self, root, filename):
         for data in self.read_file_decrypt(root+'/'+filename):
             plaintext = self.decrypt(data)
-            self.write_file(root+'/'+filename.replace(".locked", ''), plaintext)
+            self.write_file(root+'/'+filename.replace(".locked", '', 1), plaintext)
         else:
             os.remove(root+'/'+filename)
 
